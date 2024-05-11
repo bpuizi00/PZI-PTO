@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>PTO Manager</title>
+		<link rel="stylesheet" type="text/css" href="./styles/style.css" />
+		<link rel="stylesheet" type="text/css" href="./styles/normalize.css" />
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" 
+		integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" 
+		crossorigin="anonymous" referrerpolicy="no-referrer" />
+	</head>
+	<body>
+		<!-- header sa tipkama koji se pojavljuju ovisno o statusu korisnika (guest ili log-inan )-->
+		<header>
+			<span>PTO Manager</span>
+			<div>	
+				<button class="sign-in">Sign In</button> 
+				<span class="username inactive"> </span>
+				<button type="button" class="sign-out inactive">Sign Out</button>
+			</div>
+		</header>
+		<div id="guestView">
+			Data unaviailable for guest users. Please sign in to see data.
+		</div>
+		<!-- dio gdje se sadrze svi potrebni containeri unutar stranice -->
+		<main class="inactive">
+			<!-- container sa podacima odabranog korisnika (pomocu donjeg dropdowna)-->
+			<div id="content-container">
+			<div id="user-container">
+				<h4>User info</h4>
+				<div id="user-username" class="user-info">
+					<label>Username:</label>
+					<label class="content"></label>
+				</div>
+				<div id="user-id" class="user-info">
+					<label>Id:</label>
+					<label class="content"></label>
+				</div>
+				<div id="user-full-name" class="user-info">
+					<label>Name:</label>
+					<label class="content"></label>
+				</div>
+				<div id="user-email" class="user-info">
+					<label>Email:</label>
+					<label class="content"></label>
+				</div>
+				<div id="user-phone" class="user-info">
+					<label>Phone:</label>
+					<label class="content"></label>
+				</div>
+				<div id="user-website" class="user-info">
+					<label>Website:</label>
+					<label class="content"></label>
+				</div>
+			</div>
+		<div id="pto-container">
+			<!-- forma koja sadrzi dropdown, 2 kalendara i submit tipku -->
+				<form id="add-pto-form">
+					<select class="userDropdown"> </select>
+					<input id="start-date-input" class="inactive" type="date" name="start-date-input"/>
+				<div id="start-calendar" class="calendar">
+					<div class="header">
+						<button class="prev-month" type="button">
+							<i class="fas fa-arrow-left"></i>
+						</button>
+						<span class="month-year"></span>
+						<button class="next-month" type="button">
+							<i class="fas fa-arrow-right"></i>
+						</button>
+					</div>
+					<div class="body">
+						<div class="day-names-container">
+							<div class="day-name">Mon</div>
+							<div class="day-name">Tue</div>
+							<div class="day-name">Wed</div>
+							<div class="day-name">Thu</div>
+							<div class="day-name">Fri</div>
+							<div class="day-name">Sat</div>
+							<div class="day-name">Sun</div>
+						</div>
+						<div class="days-container">
+							<div class="day"></div>
+							<div class="day"></div>
+							<div class="day"></div>
+							<div class="day"></div>
+							<div class="day"></div>
+							<div class="day"></div>
+							<div class="day"></div>
+							<div class="day"></div>
+							<div class="day"></div>
+							<div class="day"></div>
+							<div class="day"></div>
+							<div class="day"></div>
+							<div class="day"></div>
+							<div class="day"></div>
+							<div class="day"></div>
+							<div class="day"></div>
+							<div class="day"></div>
+							<div class="day"></div>
+							<div class="day"></div>
+							<div class="day"></div>
+							<div class="day"></div>
+							<div class="day"></div>
+							<div class="day"></div>
+							<div class="day"></div>
+							<div class="day"></div>
+							<div class="day"></div>
+							<div class="day"></div>
+							<div class="day"></div>
+							<div class="day"></div>
+							<div class="day"></div>
+							<div class="day"></div>
+							<div class="day"></div>
+							<div class="day"></div>
+							<div class="day"></div>
+							<div class="day"></div>
+							<div class="day"></div>
+							<div class="day"></div>
+							<div class="day"></div>
+							<div class="day"></div>
+							<div class="day"></div>
+							<div class="day"></div>
+							<div class="day"></div>
+						</div>
+					</div>
+				</div>
+				<input id="end-date-input" class="inactive" type="date" name="end-date-input"/>
+				<div id="end-calendar" class="calendar">
+					<div class="header">
+						<button class="prev-month" type="button">
+							<i class="fas fa-arrow-left"></i>
+						</button>
+						<span class="month-year"></span>
+						<button class="next-month" type="button">
+							<i class="fas fa-arrow-right"></i>
+						</button>
+					</div>
+					<div class="body">
+						<div class="day-names-container">
+							<div class="day-name">Mon</div>
+							<div class="day-name">Tue</div>
+							<div class="day-name">Wed</div>
+							<div class="day-name">Thu</div>
+							<div class="day-name">Fri</div>
+							<div class="day-name">Sat</div>
+							<div class="day-name">Sun</div>
+						</div>
+						<div class="days-container">
+							<div class="day"></div>
+							<div class="day"></div>
+							<div class="day"></div>
+							<div class="day"></div>
+							<div class="day"></div>
+							<div class="day"></div>
+							<div class="day"></div>
+							<div class="day"></div>
+							<div class="day"></div>
+							<div class="day"></div>
+							<div class="day"></div>
+							<div class="day"></div>
+							<div class="day"></div>
+							<div class="day"></div>
+							<div class="day"></div>
+							<div class="day"></div>
+							<div class="day"></div>
+							<div class="day"></div>
+							<div class="day"></div>
+							<div class="day"></div>
+							<div class="day"></div>
+							<div class="day"></div>
+							<div class="day"></div>
+							<div class="day"></div>
+							<div class="day"></div>
+							<div class="day"></div>
+							<div class="day"></div>
+							<div class="day"></div>
+							<div class="day"></div>
+							<div class="day"></div>
+							<div class="day"></div>
+							<div class="day"></div>
+							<div class="day"></div>
+							<div class="day"></div>
+							<div class="day"></div>
+							<div class="day"></div>
+							<div class="day"></div>
+							<div class="day"></div>
+							<div class="day"></div>
+							<div class="day"></div>
+							<div class="day"></div>
+							<div class="day"></div>
+						</div>
+					</div>
+				</div>
+						<input type="submit" value="Submit PTO Request" id="submit-pto-button" name="submit" />
+					</form>
+					<div id="pto-list-container">
+						<div id="selector-legend">
+							<div>Filter by user:
+							<select class="userDropdown">
+								<option value="0">All users</option>
+						  	</select>
+							</div>
+							<div id="boxes" >
+								<div class="legendSquare" id="redBox"></div>
+								<span>Past PTO</span>
+								<div class="legendSquare" id="blueBox"></div>
+								<span>Current PTO</span>
+								<div class="legendSquare" id="greenBox"></div>
+								<span>Upcoming PTO</span>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</main>
+		<!-- forma za log in korisnika -->
+		<form id="login">
+			<button class="exit" type="button"><i class="fas fa-x"></i></button>
+			<span>Sign In</span>
+			<div class="input-container">
+				<label for="email">email:</label>
+				<input id="email" name="email" type="email" required/>
+				<label for="password">password:</label>
+				<input id="password" name="password" type="password" required/>
+			</div>
+			<button type="submit" class="submit">Sign In </button>
+		</form>
+		<script src="./script.js"></script>
+	</body>
+</html>

@@ -1,0 +1,300 @@
+body {
+	font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.invisible {
+	visibility: hidden;
+}
+
+.inactive{
+    display: none;
+}
+
+header {
+    display:flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    background-color:rgb(14, 61, 156);
+    padding: 0.5rem;
+    margin:0 auto;
+    position: fixed;
+    left: 0;
+    top: 0;
+    right: 0;
+	color: white;
+}
+
+/* izgled za log-outanog korisnika*/
+#guestView{
+    border: 2px solid rgb(14, 61, 156);
+    padding: 10px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+}
+
+button{
+    cursor: pointer;
+}
+
+main {
+	margin-top: 2rem;
+	display: flex;
+	justify-content: center;
+	min-height: 100vh;
+}
+
+main.inactive{
+    display: none;
+}
+
+h4 {
+	margin: 0.5rem 0.2rem;
+}
+
+#content-container {
+	display: flex;
+	justify-content: center;
+}
+
+#user-container, #add-pto-form, .pto {
+	box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+	padding: 1rem;
+	margin: 1rem;
+	height: max-content;
+}
+
+.user-info, .pto-info {
+	display: flex;
+	padding: 0.25rem;
+	color: rgb(66, 82, 172);
+}
+
+.content {
+	margin-left: 0.5rem;
+	color: gray;
+}
+
+#add-pto-form {
+	display: flex;
+	align-items: center;
+}
+
+#add-pto-form label {
+	color: gray;
+}
+
+.form-input-container {
+	display: flex;
+	flex-direction: column;
+	margin: 0.5rem;
+}
+
+#start-date-input, #end-date-input{
+	border: solid 1px gray;
+	border-radius: 5px;
+	padding: 0.35rem;
+	margin: 0.5rem 0 0 0;
+	color: rgb(66, 82, 172);
+}
+
+#submit-pto-button {
+	width: max-content;
+	height: max-content;
+	padding: 1.5rem 1rem;
+	background-color:rgb(66, 82, 172);
+	border: none;
+	color: white;
+	border-radius: 5px;
+	cursor: pointer;
+	margin-left: 0.3rem;
+}
+
+#submit-pto-button:hover {
+	background-color:rgb(50, 61, 122);
+}
+
+#pto-list-container{
+    color:white;
+}
+
+#pto-list-container label{
+    color:white;
+}
+
+.pto-request-info {
+display: flex;
+}
+
+/* izgled login forme */
+#login {
+	visibility: hidden;
+	display:flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	height:32vh;
+	width:20vw;
+	position:fixed;
+	top:calc(50vh - 32vh/2);
+	left:calc(50vw - 20vw/2);
+	background-color: rgb(14, 61, 156);
+    border: 2px solid black;
+	color:white;
+    font-size: 1.7vh;
+}
+#login .exit {
+    font-size: 0.76em;
+    border-radius: 50%;
+    height: 2.6em;
+    width: 2.6em;
+    border: none;
+    background-color: #e6e6e6;
+    position: absolute;
+    right: 0.5em;
+    top: 0.5em;
+}
+#login .input-container {
+	display:flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	margin: 2.5em 0 1.5em;
+    width: 50%;
+}
+#login .input-container input {
+    width: 100%;
+}
+
+.current-day {
+    color: red; /* or any color you prefer */
+}
+
+/* prilagodavanje izgleda na manjim ekranima */
+@media screen and (min-width: 0px) and (max-width: 900px) {
+   #add-pto-form {
+       flex-direction: column;
+   }
+   #login {
+       width: 90vw;
+       left: calc(50vw - 90vw/2);
+   }
+   .header{
+        width: 100%;
+   }
+
+}
+@media screen and (min-width: 0px) and (max-width: 450px) {
+    .username {
+        display: none;
+    }
+    #login {
+        width: 80vw;
+        left: calc(50vw - 80vw/2);
+    }
+    #login .input-container {
+        justify-content: flex-start;
+    }
+    .pto-request-info{
+        flex-direction: column;
+    }
+
+}
+@media screen and (min-width: 0px) and (max-width: 1200px) {
+    #content-container{
+        flex-direction: column;
+    }
+    #login {
+        width: 40vw;
+        left: calc(50vw - 40vw/2);
+    }
+}
+@media screen and (min-width: 0px) and (max-width: 400px) {
+    #selector-legend{
+        flex-direction: column;
+    }
+ 
+ }
+/* izgled div-a sa dropdownom i "legendom" za past,current,upcoming dane */
+#selector-legend{
+    display:flex;
+    justify-content: space-between;
+    align-items: center;
+    color: black;
+    margin: 1rem;
+}
+/* boje za prosle, trenutne i upcomming dane i izgled iznad PTO-ova */
+.legendSquare{
+    display: inline-block;
+    width: 5px;
+    height: 5px;
+    margin: 0 5px;
+}
+.legendSquare#redBox{
+    background-color: red;
+}
+.legendSquare#blueBox{
+    background-color: blue;
+}
+.legendSquare#greenBox{
+    background-color: green;
+}
+.past {
+    border: 4px solid red; 
+}
+.current {
+    border : 4px solid blue;
+}
+.upcoming {
+    border : 4px solid green;
+}
+#boxes{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* izgled kalendara */
+.calendar {
+    width: 220px;
+    border: 3px solid #390ba7;
+    padding: 10px;
+    background-color: ffffff;
+    margin: 0 5px;
+}
+.calendar .header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.calendar .day-names-container {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    grid-template-rows: auto;
+}
+.calendar .day-name {
+    justify-self: center;
+}
+.calendar .days-container {
+    display: grid;
+    height: 180px;
+    grid-template-columns: repeat(7, 1fr);
+    grid-template-rows: repeat(6, 1fr);
+}
+.day {
+    cursor: pointer;
+    display:flex;
+    justify-content: center;
+    align-items: center;
+}
+.day:hover {
+    background-color: #f0f0f0;
+}
+.day.selected{
+    background-color: #390ba7;
+    color: #fff; 
+}
+
